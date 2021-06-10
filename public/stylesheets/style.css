@@ -1,0 +1,78 @@
+body{
+background: #6a3093;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #a044ff, #6a3093);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #a044ff, #6a3093); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.url-box{
+
+    width: 100%;
+    margin-top : 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    flex-direction: column;
+}
+.url-form{
+    margin-top: 10%;
+    position: relative;
+
+}
+.url-input{
+
+    width: 50vw !important;
+    height: 60px;
+}
+.nav{
+    float: right;
+}
+.nav-link{
+
+    color : white ;
+    font-weight: 200;
+    font-size: 1.3rem;
+
+}
+
+footer{
+    background-color: #334c54;
+    text-align: center;
+    font-weight: 100;
+    color: white;
+}
+
+.myToolTip{
+
+    position: absolute;
+    top :-25%;
+    right : -10%;
+    padding : 10px;
+    box-sizing: border-box;
+    background-color: black;
+    color : white;
+    display: none;
+    border-radius: 1%;
+    z-index: 1000;
+    transition : visibility 2s;
+}
+
+#url-error{
+
+    color : red;
+    background-color: white;
+    
+    padding : 5px;
+    text-align: center;
+    
+}
+
+#error{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: red;
+    color: white;
+    padding : 50px;
+}

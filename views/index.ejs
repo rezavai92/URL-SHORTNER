@@ -1,0 +1,122 @@
+<%- include("./partials/header") %>
+<div class="container" >
+
+
+
+    <div class="url-box" >
+        <form class="url-form" method="POST" action ="/" >
+            <div class="input-group mb-3">
+
+
+                <input 
+                type="text"
+                id ="url"
+                <% if(locals.shortenedUrl) { %>
+                  value= <%= shortenedUrl %>
+                   
+                   <% }else { }%>
+                  
+                name="longUrl" 
+                class="form-control url-input" 
+                 placeholder="Put your Url here" 
+                  aria-describedby="basic-addon2">
+                  
+                  <div  class="myToolTip" >
+                      Copied
+                  </div>
+                <div class="input-group-append">
+                  <button  id="btn" class="btn btn-success" 
+
+                  
+
+                   <% if(locals.shortenedUrl) { %> 
+                    type = "button" 
+                   
+                    <% } else { %>
+                    type ="submit"
+                    
+                    <% } %> >
+
+                    <% if(locals.shortenedUrl) { %>
+                      Copy
+                      <% } else {%>
+                        
+                        Shorten 
+                        <% } %>
+                  </button>
+                </div>
+               
+
+              </div>
+              <div id="url-error"  style = <% if(!locals.errorMessage) { %> "display : none"
+                    <% } else { %> "display : block" <% } %>
+                > 
+
+                  <% if(locals.errorMessage) { %>
+                     <%= locals.errorMessage %>
+                    <%} else {} %>
+              </div>
+              
+          </form>
+          <table class="table">
+            <thead class="thead-dark" >
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            </tbody>
+          </table>
+
+    </div>
+    
+</div>
+<%- include('./partials/footer') %>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js" integrity="sha512-2rNj2KJ+D8s1ceNasTIex6z4HWyOnEYLVC3FigGOmyQCZc2eBXKgOxQmo3oKLHyfcj53uz4QMsRCWNbLd32Q1g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+  var inputURL = document.querySelector("#url")
+  
+  inputURL.addEventListener("input",(e)=>{
+
+    //console.log("hi")
+   //console.log(hi, e.target.value)
+   const btn= document.getElementById("btn")
+   btn.innerHTML="Shorten";
+   btn.type ="submit";
+  })
+ 
+  const cpyBtn=document.querySelector("#btn");
+
+  cpyBtn.addEventListener("click",()=>{
+
+    if(cpyBtn.type=="button"){
+
+
+      let toBeCopied =document.getElementById("url");
+      toBeCopied.focus()
+      toBeCopied.select();
+      toBeCopied.setSelectionRange(0,99999)
+
+      document.execCommand("copy");
+     // cpyBtn.dataToggle="popover"
+     document.querySelector(".myToolTip").style.display ="block"
+      
+      setTimeout(()=>{
+        document.querySelector(".myToolTip").style.display ="none"
+      },2000)
+
+    }
+  })
+  
+  
+  
+</script>
+</body>
+</html>
